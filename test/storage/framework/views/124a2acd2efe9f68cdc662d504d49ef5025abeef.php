@@ -9,6 +9,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th><?php echo e(__('Author')); ?></th>
                     <th><?php echo e(__('Title')); ?></th>
                     <th><?php echo e(__('Body')); ?></th>
                     <th><?php echo e(__('Created')); ?></th>
@@ -18,6 +19,10 @@
             <tbody>
             <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
+                    <td>
+                      <a href="<?php echo e(url('users/' . $post->user->id)); ?>">
+                            <?php echo e($post->user->name); ?></a>
+                    </td>
                     <td>
                         <a href="<?php echo e(url('posts/'.$post->id)); ?>"><?php echo e($post->title); ?></a>
                     </td>

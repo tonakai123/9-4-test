@@ -15,6 +15,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function posts() // 複数形
+    {
+        // 記事を新しい順で取得する
+        return $this->hasMany('App\Post')->latest();
+    }
+    
     protected $fillable = [
         'name', 'email', 'password',
     ];

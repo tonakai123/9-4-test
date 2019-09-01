@@ -20,6 +20,13 @@
 
     
     <dl class="row">
+    <dt class="col-md-2"><?php echo e(__('Author')); ?>:</dt>
+        <dd class="col-md-10">
+            <a href="<?php echo e(url('users/' . $post->user->id)); ?>">
+                <?php echo e($post->user->name); ?>
+
+            </a>
+        </dd>
         <dt class="col-md-2"><?php echo e(__('Created')); ?>:</dt>
         <dd class="col-md-10">
             <time itemprop="dateCreated" datetime="<?php echo e($post->created_at); ?>">
