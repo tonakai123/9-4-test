@@ -23,6 +23,8 @@
             </tbody>
         </table>
     </div>
+    <?php echo $users->links('vendor/pagination.bootstrap-4'); ?>
+
 </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/vagrant/laravel_lessons/test/resources/views/users/index.blade.php ENDPATH**/ ?>

@@ -14,7 +14,7 @@ class PostController extends Controller
      */
 
     public function index(){
-        $posts = Post::latest()->get();
+        $posts = Post::latest()->paginate(5);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -91,4 +91,5 @@ class PostController extends Controller
         $post->delete();
         return redirect('posts');
     }
+
 }
