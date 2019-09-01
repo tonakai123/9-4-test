@@ -13,17 +13,17 @@ class UsersTableSeeder extends Seeder
         $faker = Faker\Factory::create('ja_JP');
         // 固定ユーザーを作成
         DB::table('users')->insert([
-            'name' => 'sutara79',
-            'email' => 'toumin.m7@gmail.com',
-            'password' => bcrypt('1234'),
+            'name' => 'tonakai',
+            'email' => 'tonakai.an@gmail.com',
+            'password' => bcrypt('12345'),
             'lang' => 'ja',
             'email_verified_at' => $faker->dateTime(),
             'created_at' => $faker->dateTime(),
             'updated_at' => $faker->dateTime(),
         ]);
         DB::table('users')->insert([
-            'name' => 'foo1',
-            'email' => 'foo1@foo.com',
+            'name' => 'omotya',
+            'email' => 'tyatya1@tya.com',
             'password' => bcrypt('1234'),
             'lang' => 'en',
             'email_verified_at' => $faker->dateTime(),
