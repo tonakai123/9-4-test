@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function index() {
       $posts = Post::latest()->get();
-      return view('posts.index')->with('posts', $posts);
+      return view('posts.Home')->with('posts', $posts);
     }
 
     public function show(Post $post) {
