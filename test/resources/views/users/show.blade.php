@@ -9,7 +9,7 @@
     {{-- 編集・削除ボタン --}}
     <div>
         <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-primary">
-            {{ __('Edit') }}
+            {{ __('編集') }}
         </a>
             @component('components.btn-del')
                  @slot('table', 'users')

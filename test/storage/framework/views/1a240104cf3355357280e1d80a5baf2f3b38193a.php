@@ -2,7 +2,7 @@
     <?php echo csrf_field(); ?>
     <?php echo method_field('DELETE'); ?>
     <button type="submit" class="btn btn-danger">
-        <?php echo e(__('Delete')); ?>
+        <?php echo e(__('削除')); ?>
 
     </button>
 </form><?php /**PATH /home/vagrant/laravel_lessons/test/resources/views/components/btn-del.blade.php ENDPATH**/ ?>

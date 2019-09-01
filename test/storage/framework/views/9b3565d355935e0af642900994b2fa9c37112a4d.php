@@ -9,7 +9,7 @@
     
     <div>
         <a href="<?php echo e(url('users/'.$user->id.'/edit')); ?>" class="btn btn-primary">
-            <?php echo e(__('Edit')); ?>
+            <?php echo e(__('編集')); ?>
 
         </a>
             <?php $__env->startComponent('components.btn-del'); ?>

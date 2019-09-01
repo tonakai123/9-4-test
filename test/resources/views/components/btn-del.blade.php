@@ -2,6 +2,6 @@
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-danger">
-        {{ __('Delete') }}
+        {{ __('削除') }}
     </button>
 </form>

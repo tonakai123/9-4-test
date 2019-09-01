@@ -1,40 +1,40 @@
+@php
+    $title = $post->title;
+@endphp
 @extends('layouts.default')
-
-@section('title', $post->title)
-
 @section('content')
-<h1>
-  {{ $post->title }}
-</h1>
-<p>{!! nl2br(e($post->body)) !!}</p>
+<div class="container">
+    <h1 id="post-title">{{ $title }}</h1>
 
-<h2>Comments</h2>
-<ul>
-  @forelse ($post->comments as $comment)
-  <li>
-    {{ $comment->body }}
-    <a href="#" class="del" data-id="{{ $comment->id }}">[削除]</a>
-    <form method="post" action="{{ action('CommentsController@destroy', [$post, $comment]) }}" id="form_{{ $comment->id }}">
-      {{ csrf_field() }}
-      {{ method_field('delete') }}
-    </form>
-  </li>
-  @empty
-  <li>No comments yet</li>
-  @endforelse
-</ul>
-<form method="post" action="{{ action('CommentsController@store', $post) }}">
-  {{ csrf_field() }}
-  <p>
-    <input type="text" name="body" placeholder="enter comment" value="{{ old('body') }}">
-    @if ($errors->has('body'))
-    <span class="error">{{ $errors->first('body') }}</span>
-    @endif
-  </p>
-  <p>
-    <input type="submit" value="Add Comment">
-  </p>
-</form>
-<a href="{{ url('/') }}" class="header-menu">Back</a>
-<script src="/js/main.js"></script>
+    {{-- 編集・削除ボタン --}}
+    <div class="edit">
+        <a href="{{ url('posts/'.$post->id.'/edit') }}" class="btn btn-primary">
+            {{ __('編集') }}
+        </a>
+        @component('components.btn-del')
+            @slot('table', 'posts')
+            @slot('id', $post->id)
+        @endcomponent
+    </div>
+
+    {{-- 記事内容 --}}
+    <dl class="row">
+        <dt class="col-md-2">{{ __('Created') }}:</dt>
+        <dd class="col-md-10">
+            <time itemprop="dateCreated" datetime="{{ $post->created_at }}">
+                {{ $post->created_at }}
+            </time>
+        </dd>
+        <dt class="col-md-2">{{ __('Updated') }}:</dt>
+        <dd class="col-md-10">
+            <time itemprop="dateModified" datetime="{{ $post->updated_at }}">
+                {{ $post->updated_at }}
+            </time>
+        </dd>
+    </dl>
+    <hr>
+    <div id="post-body">
+        {{ $post->body }}
+    </div>
+</div>
 @endsection
