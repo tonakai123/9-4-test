@@ -40,6 +40,11 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+$app->configureMonologUsing(function($monolog) {
+    $filename = storage_path('logs/laravel-' . php_sapi_name() . '.log'); // laravel-{ユーザー名}.log
+    $handler  = new Monolog\Handler\RotatingFileHandler($filename);
+    $monolog->pushHandler($handler);
+  });
 
 /*
 |--------------------------------------------------------------------------
